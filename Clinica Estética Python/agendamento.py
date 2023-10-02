@@ -190,9 +190,17 @@ def janela():
     trees.insert('', 'end', values=item)
 
 # ==========================================================================================
+    # vendas
 
- frame1 = ctk.CTkFrame(tabview.tab("Venda"), width=200, height=200,fg_color='white',bg_color='MediumPurple1',border_width= 10)
- frame1.place(x=10,y=80)
+ frame1 = Frame(tabview.tab("Venda"),relief=RIDGE)
+ frame1.grid()
+
+ '''framelde = Frame(frameLdd1,width=500,height=200,bg='MediumPurple1',bd= 10,relief=RIDGE)
+    framelde.grid(row=1,column=5,sticky=E)'''
+
+
+ frame1 = ctk.CTkFrame(tabview.tab("Venda"), width=330, height=300,fg_color='white',bg_color='MediumPurple1',border_width=3)
+ frame1.grid(row=3,column=1,pady=0,padx=2)
 
  head = tkinter.Label(frame1,text="Cliente", font="arial 14 bold italic", fg='purple')
  head.place(x=10, y=10)
@@ -205,50 +213,66 @@ def janela():
 
  pqsc = tkinter.Button(frame1, justify='left',text="Pesquisar", fg="purple", font="arial 10")
  pqsc.place(x=110,y=90)
+#=============================================================================================
+    #vendas
 
- frame2 = ctk.CTkFrame(tabview.tab("Venda"),width=200,height=200,fg_color='white',bg_color='MediumPurple1',border_width= 10)
- frame2.place(x=230,y=80)
+ frame2 = Frame(tabview.tab("Venda"),relief=RIDGE)
+ frame2.grid()
+
+ frame2 = ctk.CTkFrame(tabview.tab("Venda"),width=330,height=300,fg_color='white',bg_color='MediumPurple1',border_width= 3)
+ frame2.grid(row=3,column=2,pady=0,padx=2)
 
  head2 = tkinter.Label(frame2,text="Produtos/Serviços", font="arial 14 bold italic", fg='purple')
- head2.place(x=235, y=10)
+ head2.place(x=10, y=10)
 
- entry2 = ctk.CTkEntry(frame2,width=190,placeholder_text="Informe Produto/Serviço")
- entry2.place(x=235,y=50)
+ entry2 = ctk.CTkEntry(frame2,width=205,placeholder_text="Informe Produto/Serviço")
+ entry2.place(x=5,y=50)
 
- prof = ctk.CTkOptionMenu(frame2,width=190,values=["Profissional...","Jaqueline Machado"],fg_color="MediumPurple1",button_color="MediumPurple3",button_hover_color="MediumPurple3",dropdown_fg_color="MediumPurple1",dropdown_text_color="Purple")
- prof.place(x=235,y=90)
+ prof = ctk.CTkOptionMenu(frame2,width=205,values=["Profissional...","Jaqueline Machado"],fg_color="MediumPurple1",button_color="MediumPurple3",button_hover_color="MediumPurple3",dropdown_fg_color="MediumPurple1",dropdown_text_color="Purple")
+ prof.place(x=5,y=90)
 
  entry3 = ctk.CTkEntry(frame2,width=100,placeholder_text="Preço...")
- entry3.place(x=235,y=120)
+ entry3.place(x=5,y=130)
 
  entry4 = ctk.CTkEntry(frame2,width=100,placeholder_text="Quant...")
- entry4.place(x=335,y=120)
+ entry4.place(x=110,y=130)
  
  btv = tkinter.Button(frame2, justify='left',text="+ Incluir na Venda", fg="purple", font="arial 10")
- btv.place(x=400,y=180)
+ btv.place(x=190,y=180)
 
- frame3 = ctk.CTkFrame(tabview.tab("Venda"),width=200,height=200,fg_color='white',bg_color='MediumPurple1',border_width= 10)
- frame3.place(x=450,y=80)
+
+#====================================================================================================
+  # vendas
+
+ frame3 = Frame(tabview.tab("Venda"),relief=RIDGE)
+ frame3.grid()
+
+
+ frame3 = ctk.CTkFrame(tabview.tab("Venda"),width=330,height=300,fg_color='white',bg_color='MediumPurple1',border_width= 3)
+ frame3.grid(row=3,column=3,pady=0,padx=2,sticky=E)
 
  head3 = tkinter.Label(frame3,text="Informações da Venda", font="arial 14 bold italic", fg='purple')
- head3.place(x=455, y=10)
+ head3.place(x=10, y=10)
  
- dtcl= tkinter.Label(frame3,justify='left',highlightthickness=1,anchor="nw",text="Data",font="arial 12 bold italic",fg='purple')
- dtcl.place(x=455,y=50)
+ dtcl= tkinter.Label(frame3,justify='left',highlightthickness=1,anchor="nw",text="Data",font="arial 11 bold italic",fg='purple')
+ dtcl.place(x=5,y=50)
 
  entry5 = DateEntry(frame3,width=16,height=28,bordewidth=2,fg_color="MediumPurple1",color="MediumPurple3",hover_color="MediumPurple3",dropdown_fg_color="MediumPurple1",dropdown_text_color="Purple")
- entry5.place(x=455,y=90)
+ entry5.place(x=5,y=85)
 
- ttlcl= tkinter.Label(frame3,justify='left',highlightthickness=1,anchor="nw",text="Total",font="arial 12 bold italic",fg='purple')
- ttlcl.place(x=480,y=50)
+ ttlcl= tkinter.Label(frame3,justify='left',highlightthickness=1,anchor="nw",text="Total",font="arial 11 bold italic",fg='purple')
+ ttlcl.place(x=120,y=50)
  
  entry6 = ctk.CTkEntry(frame3,width=100,placeholder_text="Total")
- entry6.place(x=480,y=90)
+ entry6.place(x=130,y=85)
 
- button1 = tkinter.Button(frame3,highlightthickness=1,anchor="nw", text="$ Formas de Pagamento", bg='MediumPurple1', fg='purple',width=20,font='Times 12')
- button1.place(x=455,y=120)  
+ button1 = tkinter.Button(frame3, text="$ Formas de Pagamento",justify='center', bg='MediumPurple1', fg='purple',width=35,font='Times 12')
+ button1.place(x=3,y=150)  
 
 #===================================================================================================
+ 
+ 
+ 
  clt_prf= tkinter.Label(tabview.tab("Profissional"),justify='left',highlightthickness=1,anchor="nw",text="Cliente",font="arial 12 bold italic",fg='purple')
  clt_prf.place(x=20,y=10)
  

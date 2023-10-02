@@ -95,13 +95,38 @@ def janela():
 
  salvar = tkinter.Button(tabview.tab("Calendário"),text="Salvar",fg='purple', width=10,font='Times 12 bold')
  salvar.place(x=5,y=450)
+#=========================================================================================================================
+    # verificar por que não está funcionando
+ 
+ global tree,trees
 
-   
- segment = ctk.CTkSegmentedButton(tabview.tab("Calendário"),values=["Dia","Semana","Mês"],fg_color="MediumPurple1",selected_hover_color="MediumPurple3",unselected_hover_color="MediumPurple1",unselected_color="MediumPurple1")
- segment.place(x=900,y=10)
- segment.set("Dia")
+ def segmented_button_callback(values):
+   text_var.set("")  
+   if values == "Dia":
+     text_var.set(f"Dia:{tree.get()}")
+   if values == "Semana":
+     text_var.set(f"Semana:{trees.get()}")
+   if values == "Mês":
+     text_var.set(f"Mês:{entryM.get()}") 
 
- global tree
+ segmented = ctk.CTkSegmentedButton(tabview.tab("Calendário"),values=["Dia","Semana","Mês"],fg_color="MediumPurple1",selected_hover_color="MediumPurple3",unselected_hover_color="MediumPurple1",unselected_color="MediumPurple1",command= segmented_button_callback)
+ segmented.place(x=900,y=10)
+ segmented.set("Dia")
+
+ text_var = tkinter.StringVar(values="")
+
+ label = ctk.CTkLabel(tabview.tab("Calendário"),textvariable = text_var)
+ label.place(x=350,y=80)
+
+ #============================================================================================================
+   # Mês vai abrir o calendário(verificar tamanho)
+ entryM = DateEntry(tabview.tab("Calendário"),width=500,height=500,bordewidth=2,fg_color="MediumPurple1",color="MediumPurple3",hover_color="MediumPurple3",dropdown_fg_color="MediumPurple1",dropdown_text_color="Purple")
+ entryM.place(x=5,y=140)
+
+ #==============================================================================================================
+   # Dia
+
+ global tree,trees
  
  tabela_head = ['Hora','Nome']
 
@@ -132,6 +157,37 @@ def janela():
  for item in lista_itens:
     tree.insert('', 'end', values=item)
 
+#===========================================================================================
+   # Semanal
+
+ tabela_head = ['Hora','Segunda','Terça','Quarta','Quinta','Sexta','Sábado']
+
+ lista_itens = ['8',' ', '8:30',' ','9:00',' ','9:30',' ','10:00',' ','10:30',' ','11:00',' ','11:30',' ','12:00',' ','12:30',' ','13:00',' ','13:30',' ','14:00',' ','14:30',' ','15:00',' ','16:00',' ','16:30',' ','17:00',' ','17:30',' ','18:00',' ','18:30']
+
+ trees = ttk.Treesview(tabview.tab("Calendário"),selectmode="extended",columns=tabela_head, show="headings",height=18)
+ 
+ vsb = ttk.Scrollbar(tabview.tab("Calendário"),orient="vertical",command=trees.yview)
+ # vertical scrollbar
+ trees.configure(yscrollcommand=vsb.set)
+ trees.grid(column=0, row=0, sticky='nsew')
+ vsb.grid(column=2, row=0, sticky='ns')
+ vsb.place(x=1023,y=105)
+
+    
+ hd=["center","center","center","center","center","center","center"]
+ h=[40,100,100,100,100,100,100]
+ n=0
+
+ for col in tabela_head:
+    trees.heading(col, text=col.title(), anchor=CENTER)
+    # adjust the column's width to the header string
+    trees.column(col, width=h[n],anchor=hd[n])
+    n+=1
+    trees.place(x=350,y=80)
+
+ # inserindo os itens dentro da tabela
+ for item in lista_itens:
+    trees.insert('', 'end', values=item)
 
 # ==========================================================================================
 

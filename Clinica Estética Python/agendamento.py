@@ -40,12 +40,14 @@ def janela():
  img=img.subsample(55,60)
  Cad = tkinter.Button(tabview.tab("Calendário"), width=25, image= img)
  labelimg=tkinter.Label(image=img)
- Cad.place(x=196,y=20)'''
+ labelimg.place(x=196,y=20)
+ Cad.place(x=196,y=20)
 
- '''image= tkinter.PhotoImage(file =r'c:\\Users\\User\\Desktop\\Clinica Python\\icone\\lupa.png')
+ image= tkinter.PhotoImage(file =r'c:\\Users\\User\\Desktop\\Clinica Python\\icone\\lupa.png')
  image=image.subsample(60,55)
  pq = tkinter.Button(tabview.tab("Calendário"), width=25, image= image)
  labelimage=tkinter.Label(image=image)
+ labelimage.place(x=229,y=20)
  pq.place(x=229,y=20)'''
 
  entry = ctk.CTkEntry(tabview.tab("Calendário"),width=124,justify='center',placeholder_text="(  )_____-____")
@@ -64,6 +66,7 @@ def janela():
  magee=magee.subsample(60,55)
  pps = tkinter.Button(tabview.tab("Calendário"), width=25, image=magee)
  labelmagee=tkinter.Label(image=magee)
+ labelmagee.place(x=229,y=100)
  pps.place(x=229,y=100)'''
 
  entry = DateEntry(tabview.tab("Calendário"),width=16,height=28,bordewidth=2,fg_color="MediumPurple1",color="MediumPurple3",hover_color="MediumPurple3",dropdown_fg_color="MediumPurple1",dropdown_text_color="Purple")
@@ -98,7 +101,7 @@ def janela():
 #=========================================================================================================================
     # verificar por que não está funcionando
  
- global tree,trees
+ '''global tree,trees
 
  def segmented_button_callback(values):
    text_var.set("")  
@@ -121,7 +124,7 @@ def janela():
  #============================================================================================================
    # Mês vai abrir o calendário(verificar tamanho)
  entryM = DateEntry(tabview.tab("Calendário"),width=500,height=500,bordewidth=2,fg_color="MediumPurple1",color="MediumPurple3",hover_color="MediumPurple3",dropdown_fg_color="MediumPurple1",dropdown_text_color="Purple")
- entryM.place(x=5,y=140)
+ entryM.place(x=5,y=140)'''
 
  #==============================================================================================================
    # Dia
@@ -158,7 +161,7 @@ def janela():
     tree.insert('', 'end', values=item)
 
 #===========================================================================================
-   # Semanal
+ '''  # Semanal
 
  tabela_head = ['Hora','Segunda','Terça','Quarta','Quinta','Sexta','Sábado']
 
@@ -187,7 +190,7 @@ def janela():
 
  # inserindo os itens dentro da tabela
  for item in lista_itens:
-    trees.insert('', 'end', values=item)
+    trees.insert('', 'end', values=item)'''
 
 # ==========================================================================================
     # vendas
@@ -199,8 +202,8 @@ def janela():
     framelde.grid(row=1,column=5,sticky=E)'''
 
 
- frame1 = ctk.CTkFrame(tabview.tab("Venda"), width=330, height=300,fg_color='white',bg_color='MediumPurple1',border_width=3)
- frame1.grid(row=3,column=1,pady=0,padx=2)
+ frame1 = ctk.CTkFrame(tabview.tab("Venda"), width=330, height=230,fg_color='white',bg_color='MediumPurple1',border_width=3)
+ frame1.grid(row=2,column=1,pady=0,padx=2)
 
  head = tkinter.Label(frame1,text="Cliente", font="arial 14 bold italic", fg='purple')
  head.place(x=10, y=10)
@@ -219,8 +222,8 @@ def janela():
  frame2 = Frame(tabview.tab("Venda"),relief=RIDGE)
  frame2.grid()
 
- frame2 = ctk.CTkFrame(tabview.tab("Venda"),width=330,height=300,fg_color='white',bg_color='MediumPurple1',border_width= 3)
- frame2.grid(row=3,column=2,pady=0,padx=2)
+ frame2 = ctk.CTkFrame(tabview.tab("Venda"),width=330,height=230,fg_color='white',bg_color='MediumPurple1',border_width= 3)
+ frame2.grid(row=2,column=2,pady=0,padx=2)
 
  head2 = tkinter.Label(frame2,text="Produtos/Serviços", font="arial 14 bold italic", fg='purple')
  head2.place(x=10, y=10)
@@ -249,30 +252,41 @@ def janela():
 
 
  frame3 = ctk.CTkFrame(tabview.tab("Venda"),width=330,height=300,fg_color='white',bg_color='MediumPurple1',border_width= 3)
- frame3.grid(row=3,column=3,pady=0,padx=2,sticky=E)
+ frame3.grid(row=2,column=3,pady=0,padx=2,sticky=E)
 
  head3 = tkinter.Label(frame3,text="Informações da Venda", font="arial 14 bold italic", fg='purple')
  head3.place(x=10, y=10)
  
  dtcl= tkinter.Label(frame3,justify='left',highlightthickness=1,anchor="nw",text="Data",font="arial 11 bold italic",fg='purple')
- dtcl.place(x=5,y=50)
+ dtcl.place(x=5,y=80)
 
  entry5 = DateEntry(frame3,width=16,height=28,bordewidth=2,fg_color="MediumPurple1",color="MediumPurple3",hover_color="MediumPurple3",dropdown_fg_color="MediumPurple1",dropdown_text_color="Purple")
- entry5.place(x=5,y=85)
+ entry5.place(x=5,y=125)
 
  ttlcl= tkinter.Label(frame3,justify='left',highlightthickness=1,anchor="nw",text="Total",font="arial 11 bold italic",fg='purple')
- ttlcl.place(x=120,y=50)
+ ttlcl.place(x=120,y=80)
  
  entry6 = ctk.CTkEntry(frame3,width=100,placeholder_text="Total")
- entry6.place(x=130,y=85)
+ entry6.place(x=130,y=125)
 
  button1 = tkinter.Button(frame3, text="$ Formas de Pagamento",justify='center', bg='MediumPurple1', fg='purple',width=35,font='Times 12')
- button1.place(x=3,y=150)  
+ button1.place(x=3,y=215)  
 
 #===================================================================================================
+   #Vendas
+ frame4 = Frame(tabview.tab("Venda"),relief=RIDGE)
+ frame4.grid()
+
+ frame4 = ctk.CTkFrame(tabview.tab("Venda"),width=660,height=190,fg_color='white',bg_color='MediumPurple1',border_width= 3)
+ frame4.grid(row=3,column=1,pady=1,padx=0,columnspan=2)
+
+ head4 = tkinter.Label(frame4,text="Item de Venda",justify='center', font="arial 14 bold italic", fg='purple')
+ head4.place(x=10, y=10)
  
+ entry7 = ctk.CTkEntry(frame4,width=600,placeholder_text="Nenhuma venda registrada",justify='center')
+ entry7.place(x=20,y=80)
  
- 
+#================================================================================================= 
  clt_prf= tkinter.Label(tabview.tab("Profissional"),justify='left',highlightthickness=1,anchor="nw",text="Cliente",font="arial 12 bold italic",fg='purple')
  clt_prf.place(x=20,y=10)
  
@@ -392,5 +406,6 @@ def janela():
 
  
  janela.mainloop()
+
 
 
